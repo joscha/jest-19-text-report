@@ -1,0 +1,38 @@
+{
+  "name": "jest-19-text-report",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:joscha/jest-19-text-report.git",
+  "author": "Joscha Feth <joscha@feth.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^19.0.2",
+    "ts-jest": "^19.0.0",
+    "typescript": "^2.3.2"
+  },
+  "scripts": {
+    "test": "jest --coverage && cat coverage/remapped/coverage.txt"
+  },
+  "jest": {
+    "globals": {
+      "__TS_CONFIG__": "./tsconfig.json"
+    },
+    "roots": [
+      "<rootDir>/src"
+    ],
+    "transform": {
+      ".ts": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "testResultsProcessor": "<rootDir>/node_modules/ts-jest/coverageprocessor.js",
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "coverageReporters": [
+      "lcov",
+      "text",
+      "text-summary"
+    ]
+  }
+}
